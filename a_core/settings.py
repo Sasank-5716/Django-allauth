@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount'
 
     # My apps
     'a_home',
