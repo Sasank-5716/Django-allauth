@@ -69,13 +69,6 @@ AUTHENTICATION_BACKENDS = [
 
 
 SOCIALACCOUNT_PROVIDERS = {
-    'github': {
-        'SCOPE': [
-            'user',
-            'repo',
-            'read:org',
-        ],
-    },
     'google': {
         'SCOPE': [
             'profile',
