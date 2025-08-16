@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Sasank {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_head %}{% endblock %}
+  </head>
+  <body>
+    
+    <nav>
+      <ul class="navbar">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/about/">ABOUT</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'account_logout' %}">LOGOUT</a></li>
+        {% else %}
+        <li><a href="{% url 'account_login' %}">LOGIN</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    <main>{% block content %}<h1>HELLO {{ user.username }}</h1>  {% endblock %}</main>
+
+    <footer>ABOUT US</footer>
+  </body>
+</html>

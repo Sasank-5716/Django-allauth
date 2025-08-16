@@ -1,0 +1,32 @@
+{% extends "home.html" %}
+{% load static %}
+{% load socialaccount %}
+
+{% block head_title %}Sign Up{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+
+<div class="auth-container">
+    <h2>Sign Up</h2>
+
+    <form method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+
+    <div class="social-login">
+        <p>Or sign up with:</p>
+        {% providers_media_js %}
+        <a href="{% provider_login_url 'google' %}" class="btn btn-social google-btn">
+            <img src="{% static 'images/google-logo.png' %}" alt="Google logo" /> Google
+        </a>
+        <a href="{% provider_login_url 'github' %}" class="btn btn-social github-btn">
+            <img src="{% static 'images/github-logo.png' %}" alt="GitHub logo" /> GitHub
+        </a>
+    </div>
+
+    <p>Already have an account? <a href="{% url 'account_login' %}">Log in</a></p>
+</div>
+{% endblock %}

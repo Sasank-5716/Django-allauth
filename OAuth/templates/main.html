@@ -1,0 +1,12 @@
+{% extends 'home.html' %}
+
+{% block head_title %}Dashboard{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1>Hello {{ user.username }}</h1>
+    {% else %}
+        <p>User is not logged in</p>
+        <a href="{% url 'account_login' %}">Login</a>
+    {% endif %}
+{% endblock %}
